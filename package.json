@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server --open=./index.html"
+  },
+  "dependencies": {
+    "@angular/common": "~2.2.0",
+    "@angular/core": "~2.2.0",
+    "mathjs": "^11.2.1"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.0"
+  }
+}

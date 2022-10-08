@@ -19,16 +19,16 @@
       <div id="calculator">
         <header class="p-20 fs-24">
           <div id="content" class="d-flex justify-sb pr-10">
-            <div id="calculated_number" class="op-min fs-18">0</div>
+            <div id="calculated_number" class="op-min fs-18"></div>
             <div id="curr_number" class="fs-26">0</div>
           </div>
-          <div id="calc-btn-container">
+          <div id="calc-btn-container" class="rad-10">
+            <button onclick="delete_all()" class="fs-20 br-20">c</button>
             <button class="calc-btn | fs-20 br-20">+</button>
             <button class="calc-btn | fs-20 br-20">-</button>
             <button class="calc-btn | fs-20 br-20">*</button>
             <button class="calc-btn | fs-20 br-20">/</button>
-            <button onclick="delete_nb()" class="fs-20 br-20"><</button>
-            <button onclick="delete_all()" class="fs-20 br-20">C</button>
+            <button onclick="delete_nb()" class="fs-20 br-20"><<</button>
           </div>
         </header>
         <section>

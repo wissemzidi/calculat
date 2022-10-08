@@ -6,6 +6,63 @@ let resultBtn = document.querySelector("#result-btn");
 let negativeBtn = document.querySelector("#negative-btn");
 let sign = "";
 
+document.addEventListener("keyup", (e) => {
+  console.log(e.key);
+  switch (e.key) {
+    case "1":
+      numbersBtn[0].click();
+      break;
+    case "2":
+      numbersBtn[1].click();
+      break;
+    case "3":
+      numbersBtn[2].click();
+      break;
+    case "4":
+      numbersBtn[3].click();
+      break;
+    case "5":
+      numbersBtn[4].click();
+      break;
+    case "6":
+      numbersBtn[5].click();
+      break;
+    case "7":
+      numbersBtn[6].click();
+      break;
+    case "8":
+      numbersBtn[7].click();
+      break;
+    case "9":
+      numbersBtn[8].click();
+      break;
+    case "0":
+      numbersBtn[9].click();
+      break;
+    case "+":
+      calcBtn[0].click();
+      break;
+    case "-":
+      calcBtn[1].click();
+      break;
+    case "*":
+      calcBtn[2].click();
+      break;
+    case "/":
+      calcBtn[3].click();
+      break;
+    case "Backspace":
+      delete_nb();
+      break;
+    case "c":
+      delete_all();
+      break;
+    case "Enter":
+      resultBtn.click();
+      break;
+  }
+});
+
 negativeBtn.addEventListener("click", () => {
   currentNbContainer.innerHTML *= -1;
 });
@@ -84,5 +141,5 @@ function delete_nb() {
 
 function delete_all() {
   currentNbContainer.innerHTML = "0";
-  calculatedNb.innerHTML = "0";
+  calculatedNb.innerHTML = "";
 }
