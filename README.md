@@ -1,6 +1,6 @@
 # Read Me
 
-## [👀 Live-Server](https://.netlify.app)
+## [👀 Live-Server](https://calculator-wissem.netlify.app)
 
 <img src="./preview.png" alt="">
 
