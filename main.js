@@ -68,61 +68,51 @@ negativeBtn.addEventListener("click", () => {
 });
 
 resultBtn.addEventListener("click", () => {
-  let a = calculatedNb.innerHTML.slice(0, calculatedNb.innerHTML.length - 1);
+  let a = calculatedNb.innerHTML;
   let b = currentNbContainer.innerHTML;
-  a = Number(a);
-  b = Number(b);
-  // console.log(a, sign, b);
-  switch (sign.trim()) {
-    case "+":
-      res = a + b;
-      break;
-    case "-":
-      res = a - b;
-      break;
-    case "*":
-      res = a * b;
-      break;
-    case "/":
-      res = a / b;
-      break;
+  res = eval(`${a} ${b}`);
+  if (res === Infinity) {
+    res = "Error !";
+    console.log(res);
+    currentNbContainer.style.color = "red";
+    setTimeout(() => {
+      currentNbContainer.innerHTML = "0";
+      currentNbContainer.style.color = "black";
+    }, 2000);
   }
-  console.log(res);
   currentNbContainer.innerHTML = res;
   calculatedNb.innerHTML = "";
 });
 
 calcBtn.forEach((ele) => {
   ele.addEventListener("click", () => {
-    if (is_notIncludingSym()) {
-      delete_zero(calculatedNb);
-      calculatedNb.innerHTML += currentNbContainer.innerHTML + ele.innerHTML;
-      sign = ele.innerHTML;
-      currentNbContainer.innerHTML = "0";
-    }
+    delete_zero(calculatedNb);
+    calculatedNb.innerHTML += currentNbContainer.innerHTML + ele.innerHTML;
+    sign = ele.innerHTML;
+    currentNbContainer.innerHTML = "0";
   });
 });
 
-function is_notIncludingSym() {
-  if (calculatedNb.innerHTML.includes("+")) {
-    return false;
-  } else if (calculatedNb.innerHTML.includes("-")) {
-    return false;
-  } else if (calculatedNb.innerHTML.includes("*")) {
-    return false;
-  } else if (calculatedNb.innerHTML.includes("/")) {
-    return false;
-  } else {
-    return true;
-  }
-}
+// function is_notIncludingSym() {
+//   if (calculatedNb.innerHTML.includes("+")) {
+//     return false;
+//   } else if (calculatedNb.innerHTML.includes("-")) {
+//     return false;
+//   } else if (calculatedNb.innerHTML.includes("*")) {
+//     return false;
+//   } else if (calculatedNb.innerHTML.includes("/")) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
 
 numbersBtn.forEach((ele) => {
   ele.addEventListener("click", () => {
     let nb = ele.innerHTML.trim();
-    if (currentNbContainer.textContent.length < 8) {
-      currentNbContainer.innerHTML += nb;
-    }
+    // if (currentNbContainer.textContent.length < 8) {
+    currentNbContainer.innerHTML += nb;
+    // }
     if (currentNbContainer.textContent[0] == "0") {
       delete_zero(currentNbContainer);
     }

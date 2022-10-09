@@ -32,6 +32,10 @@
   height: fit-content;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 /*end of Box*/
 /* font size and weight */
 .fs-10 {
