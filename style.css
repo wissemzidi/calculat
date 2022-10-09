@@ -1,7 +1,7 @@
 :root {
-  --clr-font: #fdfdfd;
-  --clr-background: rgb(10, 10, 10);
-  --clr-gray: gray;
+  --clr-font: #000000;
+  --clr-background: #fdfdfd;
+  --clr-gray: rgba(255, 255, 255, 0.6);
   --clr-light-gray: lightgray;
 }
 
@@ -24,25 +24,25 @@ body {
 }
 
 main {
-  width: min(25rem, 100%);
-  min-height: 40rem;
+  width: min(21rem, 100%);
+  min-height: fit-content;
 }
 
 #calculator {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   width: 100%;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(236, 236, 236);
   min-height: fit-content;
   border-radius: 20px;
 }
 
 #calculator > header {
   height: 10rem;
-  background-color: rgba(255, 166, 0, 0.4);
-  border-radius: 20px;
+  background-color: transparent;
+  border-radius: 20px 20px 0 0;
   text-align: right;
   display: grid;
   gap: 3rem;
@@ -52,7 +52,7 @@ main {
   display: flex;
   justify-content: space-around;
   flex-grow: 1;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #calc-btn-container > button {
@@ -60,24 +60,25 @@ main {
   flex-grow: 1;
   justify-content: center;
   padding-block: 0.5rem;
-  background-color: transparent;
   border: none;
-  opacity: 0.75;
+  background-color: transparent;
+  opacity: 0.6;
   cursor: pointer;
 }
 
 #calc-btn-container > button:where(:hover, :focus-visible) {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 #calc-btn-container > button:not(:first-child) {
-  border-left: 1px solid black;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 300px) {
   #calc-btn-container > button {
     padding: 0.2rem 0.5rem;
+    padding: 0;
   }
 }
 
@@ -100,16 +101,16 @@ main {
 #calculator > section button {
   border: none;
   outline: none;
-  color: orange;
+  color: black;
+  background-color: var(--clr-background);
+  border-radius: 5px;
   cursor: pointer;
   width: 100px;
   aspect-ratio: 1;
-  transition: 0.2s ease-out background-color, 0.2s ease-out color,
-    0.2s ease-out opacity;
+  transition: 0.2s ease-out opacity;
 }
 
 #calculator > section button:where(:hover, :focus-visible) {
-  background-color: var(--clr-light-gray);
-  color: black;
-  opacity: 0.75;
+  opacity: 0.7;
+  filter: blur(0.5px);
 }
