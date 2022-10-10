@@ -7,59 +7,35 @@ let negativeBtn = document.querySelector("#negative-btn");
 let sign = "";
 
 document.addEventListener("keyup", (e) => {
-  console.log(e.key);
-  switch (e.key) {
-    case "1":
-      numbersBtn[0].click();
-      break;
-    case "2":
-      numbersBtn[1].click();
-      break;
-    case "3":
-      numbersBtn[2].click();
-      break;
-    case "4":
-      numbersBtn[3].click();
-      break;
-    case "5":
-      numbersBtn[4].click();
-      break;
-    case "6":
-      numbersBtn[5].click();
-      break;
-    case "7":
-      numbersBtn[6].click();
-      break;
-    case "8":
-      numbersBtn[7].click();
-      break;
-    case "9":
-      numbersBtn[8].click();
-      break;
-    case "0":
-      numbersBtn[9].click();
-      break;
-    case "+":
-      calcBtn[0].click();
-      break;
-    case "-":
-      calcBtn[1].click();
-      break;
-    case "*":
-      calcBtn[2].click();
-      break;
-    case "/":
-      calcBtn[3].click();
-      break;
-    case "Backspace":
-      delete_nb();
-      break;
-    case "c":
-      delete_all();
-      break;
-    case "Enter":
-      resultBtn.click();
-      break;
+  if (e.key == 0) {
+    numbersBtn[numbersBtn.length - 1].click();
+  } else if (Number.isNaN(e.key / 2) === false) {
+    numbersBtn[e.key - 1].click();
+  } else {
+    switch (e.key) {
+      case "+":
+        console.log("+");
+        calcBtn[0].click();
+        break;
+      case "-":
+        calcBtn[1].click();
+        break;
+      case "*":
+        calcBtn[2].click();
+        break;
+      case "/":
+        calcBtn[3].click();
+        break;
+      case "Backspace":
+        delete_nb();
+        break;
+      case "c":
+        delete_all();
+        break;
+      case "Enter":
+        resultBtn.click();
+        break;
+    }
   }
 });
 
@@ -71,7 +47,7 @@ resultBtn.addEventListener("click", () => {
   let a = calculatedNb.innerHTML;
   let b = currentNbContainer.innerHTML;
   res = eval(`${a} ${b}`);
-  if (res === Infinity) {
+  if (res === Infinity || res === "NaN") {
     res = "Error !";
     console.log(res);
     currentNbContainer.style.color = "red";
@@ -93,20 +69,6 @@ calcBtn.forEach((ele) => {
   });
 });
 
-// function is_notIncludingSym() {
-//   if (calculatedNb.innerHTML.includes("+")) {
-//     return false;
-//   } else if (calculatedNb.innerHTML.includes("-")) {
-//     return false;
-//   } else if (calculatedNb.innerHTML.includes("*")) {
-//     return false;
-//   } else if (calculatedNb.innerHTML.includes("/")) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
-
 numbersBtn.forEach((ele) => {
   ele.addEventListener("click", () => {
     let nb = ele.innerHTML.trim();
@@ -121,8 +83,12 @@ numbersBtn.forEach((ele) => {
 
 function delete_zero(container) {
   let b = container.textContent.slice(1, container.textContent.length);
-  container.textContent = b;
+  if (container.textContent[0] === "0") {
+    container.textContent = b;
+  }
 }
+
+Number.parseInt();
 
 function delete_nb() {
   let a = currentNbContainer.innerHTML;
